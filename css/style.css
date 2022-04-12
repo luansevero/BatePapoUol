@@ -157,8 +157,11 @@ body{
     height: 10px;
     color: #28bb25;
     margin-right: 27px;
+    opacity: 0;
 }
-
+.selected{
+    opacity: 1;
+}
 
 
 /*Main - Chat*/
@@ -207,17 +210,7 @@ time{
 .private{
     background: #FFDEDE;
 }
-.write-msg{
-    height: 30px;
-    width: 145px;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21px;
-    display: flex;
-    align-items: center;
-    color: #000000;
-    border: none;
-}
+
 
 
 
@@ -232,6 +225,7 @@ time{
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
     display: flex;
     align-items: center;
+    
 }
 .bottombar-container{
     width: 100%;
@@ -239,6 +233,25 @@ time{
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.bottomtext{    
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 25px;
+}
+.write-msg{
+    font-style: italic;
+    height: 30px;
+    width: 145px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    border: none;
+}
+.write-msg::placeholder{
+    color: #000000;
 }
 .send-msg{
     width: 26px;

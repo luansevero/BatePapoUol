@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/mobile.css">
 </head>
 <body>
-    <main class="entrance active">
+    <main class="entrance ">
         <img src="imagens/logo 2.png">
         <input class="write-name" type="text" placeholder="Digite seu nome">
         <div class="button-login" onclick="login(this)">
@@ -25,23 +25,23 @@
     </nav>
     <aside class="mainsidebar" onclick="closeMenu(this)">
         <div class="sidebar">
-            <section class="contacts">
+            <section class="participants">
                 <h1>Escolha um contato para enviar mensagem:</h1>
-                <div class="users">
+                <div class="users selected" data-identifier="participant" onclick="msgFor(this)">
                     <div class="users-container">
                         <ion-icon class="iconPerson" name="people"></ion-icon>
                         <p>Todos</p>
                     </div>
-                    <ion-icon class="checkmark" name="checkmark-sharp"></ion-icon>
+                    <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
                 </div>
-                <div class="users">
+                <div class="users" data-identifier="participant" onclick="msgFor(this)">
                     <div class="users-container">
                         <ion-icon class="iconPerson" name="person-circle"></ion-icon>
                         <p>João</p>
                     </div>
                     <ion-icon class="checkmark" name="checkmark-sharp"></ion-icon>
                 </div>
-                <div class="users">
+                <div class="users" data-identifier="participant" onclick="msgFor(this)">
                     <div class="users-container">
                         <ion-icon class="iconPerson" name="person-circle"></ion-icon>
                         <p>Maria</p>
@@ -51,14 +51,14 @@
             </section>
             <section  class="visibility">
                 <h1>Escolha a visibilidade:</h1>
-                <div class="visibilityType">
+                <div class="visibilityType selected" data-identifier="visibility" onclick="msgFor(this)">
                     <div class="visibilityType-container">
                         <ion-icon class="iconLock" name="lock-open"></ion-icon>
                         <p>Público</p>
                     </div>
-                    <ion-icon class="checkmark" name="checkmark-sharp"></ion-icon>
+                    <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
                 </div>
-                <div class="visibilityType">
+                <div class="visibilityType" data-identifier="visibility" onclick="msgFor(this)">
                     <div class="visibilityType-container">
                         <ion-icon class="iconLock" name="lock-closed"></ion-icon>
                         <p>Reservadamente</p>
@@ -92,7 +92,7 @@
                 <p><time>(09:22:48)</time> <strong>João</strong> reservadamente para <strong>Maria</strong>:  Oi gatinha quer tc?</p>
             </div>
         </div>
-        <div class="mensagens inOut">
+        <div class="mensagens status">
             <div class="msg">
                 <p><time>(09:22:58)</time> <strong>Maria</strong>  sai da sala...</p>
             </div>
@@ -101,7 +101,10 @@
 
     <footer class="bottombar">
         <div class="bottombar-container">
-            <input class="write-msg" placeholder="Escreva aqui...">
+            <div class="bottomtext">
+                <input class="write-msg" placeholder="Escreva aqui...">
+                <p class="sendTo">Enviando para <span>Todos</span> <span>(Público)</span></p>
+            </div>
             <ion-icon class="send-msg" name="paper-plane-outline" onclick="sendMessage()"></ion-icon>
         </div>
     </footer>
