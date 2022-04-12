@@ -72,17 +72,17 @@
 
     <main class="chat">
         <!--Vai ser criado pelo JS, no momento aqui no html para ter vizualição de como vai ficar-->
-        <div class="mensagens inOut">
+        <div class="mensagens status">
             <div class="msg">
                 <p><time>(09:21:45)</time>  <strong>João</strong>  entra na sala...</p>
             </div>
         </div>
-        <div class="mensagens forall">
+        <div class="mensagens normal">
             <div class="msg">
                 <p><time>(09:22:28)</time>  <strong>João</strong> para Todos:  Bom dia</p>
             </div>
         </div>
-        <div class="mensagens forall">
+        <div class="mensagens normal">
             <div class="msg">
                 <p><time>(09:22:38)</time>  <strong>Maria</strong> para <strong>João</strong>:  Oi João :)</p>
             </div>
@@ -102,7 +102,7 @@
     <footer class="bottombar">
         <div class="bottombar-container">
             <input class="write-msg" placeholder="Escreva aqui...">
-            <ion-icon class="send-msg" name="paper-plane-outline"></ion-icon>
+            <ion-icon class="send-msg" name="paper-plane-outline" onclick="sendMessage()"></ion-icon>
         </div>
     </footer>
 

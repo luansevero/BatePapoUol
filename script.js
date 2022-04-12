@@ -5,7 +5,7 @@ function login(element){
     }
 }
 function verifyName(nametyped){
-    if(nametyped == 0){
+    if(nametyped == ""){
         return false
     } else {
         return true
@@ -20,4 +20,12 @@ function closeMenu(element){
             element.classList.remove(`active`)
         }
     }
+}
+function localTime(){
+    let time = new Date()
+    let hour = time.getHours()
+    let min = time.getMinutes()
+    let sec = time.getSeconds()
+    let clock = `${("0" + hour).slice(-2)}:${("0" + min).slice(-2)}:${("0" + sec).slice(-2)}`
+    return clock
 }
