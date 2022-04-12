@@ -30,8 +30,93 @@ body{
     height: 45px;
 }
 
-/*Main*/
+/*Aside*/
+.mainsidebar{
+    width: 100%;
+    left: 100%;
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: rgba(0, 0, 0, 0.6);  
+    z-index: 1;
+}
 
+.sidebar{
+    width: 259px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #FFFFFF;
+}
+.sidebar h1{
+    padding: 25px 0px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: center;
+
+}
+/*Aside - Section User*/
+.users{
+    padding: 6px 0;
+    margin-left: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.users-container{
+    display: flex;
+    align-items: center;
+}
+.users p{
+    margin-left: 6px;
+}
+/*Aside - Section Visibility*/
+.visibilityType{
+    padding: 6px 0;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.visibilityType-container{
+    display: flex;
+    align-items: center;
+}
+.visibilityType p{
+    margin-top: 6px;
+    margin-left: 7px;
+}
+
+
+
+/*Aside - Icones*/
+.iconPerson{
+    width: 25px;
+    height: 25px;
+    color: #000000;
+}
+.iconLock{
+    width: 22px;
+    height: 22px;
+    color: #000000;
+}
+.checkmark{
+    width: 15px;
+    height: 10px;
+    color: #28bb25;
+    margin-right: 27px;
+}
+
+
+
+/*Main*/
 /*Classe das Mensagens*/
 .chat{
     margin-top: 106px;
@@ -114,7 +199,9 @@ input{
     width: 26px;
     height: 26px;
 }
-
-
+/*Outros!!!!!*/
+.active{
+    display: flex;
+}
 
 /*Text*/

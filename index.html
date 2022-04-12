@@ -10,12 +10,58 @@
     <link rel="stylesheet" href="css/mobile.css">
 </head>
 <body>
-    <header class="topbar">
+    <nav class="topbar">
         <div class="topbar-container">
             <img src="imagens/logo 1.png">
             <ion-icon class="profile" name="people" onclick="menu()"></ion-icon>
         </div>
-    </header>
+    </nav>
+    <aside class="mainsidebar" onclick="closeMenu(this)">
+        <div class="sidebar">
+            <section class="contacts">
+                <h1>Escolha um contato para enviar mensagem:</h1>
+                <div class="users">
+                    <div class="users-container">
+                        <ion-icon class="iconPerson" name="people"></ion-icon>
+                        <p>Todos</p>
+                    </div>
+                    <ion-icon class="checkmark" name="checkmark-sharp"></ion-icon>
+                </div>
+                <div class="users">
+                    <div class="users-container">
+                        <ion-icon class="iconPerson" name="person-circle"></ion-icon>
+                        <p>João</p>
+                    </div>
+                    <ion-icon class="checkmark" name="checkmark-sharp"></ion-icon>
+                </div>
+                <div class="users">
+                    <div class="users-container">
+                        <ion-icon class="iconPerson" name="person-circle"></ion-icon>
+                        <p>Maria</p>
+                    </div>
+                    <ion-icon class="checkmark" name="checkmark-sharp"></ion-icon>
+                </div>
+            </section>
+            <section  class="visibility">
+                <h1>Escolha a visibilidade:</h1>
+                <div class="visibilityType">
+                    <div class="visibilityType-container">
+                        <ion-icon class="iconLock" name="lock-open"></ion-icon>
+                        <p>Público</p>
+                    </div>
+                    <ion-icon class="checkmark" name="checkmark-sharp"></ion-icon>
+                </div>
+                <div class="visibilityType">
+                    <div class="visibilityType-container">
+                        <ion-icon class="iconLock" name="lock-closed"></ion-icon>
+                        <p>Reservadamente</p>
+                    </div>
+                    <ion-icon class="checkmark" name="checkmark-sharp"></ion-icon>
+                </div>
+            </section>
+        </div>
+    </aside>
+
 
     <main class="chat">
         <!--Vai ser criado pelo JS, no momento aqui no html para ter vizualição de como vai ficar-->
