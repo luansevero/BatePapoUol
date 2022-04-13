@@ -11,10 +11,16 @@
 </head>
 <body>
     <main class="entrance active">
-        <img src="imagens/logo 2.png">
-        <input class="write-name" type="text" placeholder="Digite seu nome">
-        <div class="button-login" onclick="login()">
-                <p>Entrar</p>
+        <img class="logo" src="imagens/logo 2.png">
+        <div class="cadastro active">
+            <input class="write-name" type="text" placeholder="Digite seu nome">
+            <div class="button-login" onclick="login(this)">
+                    <p>Entrar</p>
+            </div>
+        </div>
+        <div class="loading ">
+            <img class="gifload" src="imagens/load.gif">
+            <span>Entrando...</span>
         </div>
     </main>
     <nav class="topbar">
@@ -27,14 +33,17 @@
         <div class="sidebar">
             <section class="participants">
                 <h1>Escolha um contato para enviar mensagem:</h1>
-                <div class="users selected" onclick="msgFor(this)">
-                    <div class="users-container">
-                        <ion-icon class="iconPerson" name="people"></ion-icon>
-                        <p>Todos</p>
+                <div class="scroll">
+                    <div class="users selected" onclick="msgFor(this)">
+                        <div class="users-container">
+                            <ion-icon class="iconPerson" name="people"></ion-icon>
+                            <p>Todos</p>
+                        </div>
+                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
                     </div>
-                    <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
-                </div>
-                <div class="participantslist">
+
+                    <div class="participantslist">
+                    </div>
                 </div>
 
             </section>
@@ -58,7 +67,9 @@
         </div>
     </aside>
 
-    <main class="chat">
+    <main class="chatmargins">
+        <main class="chat">
+        </main>
     </main>
 
     <footer class="bottombar">

@@ -20,7 +20,7 @@ body{
     align-items: center;
     flex-direction: column;
 }
-.entrance img{
+.logo img{
     width: 130px;
     height: 92px;
 }
@@ -54,6 +54,23 @@ body{
     line-height: 25px;
     color: #696969;
 }
+.cadastro,
+.loading{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+.loading span{
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.gifload{
+    margin-top: 90%;
+    width: 120px;
+    height: 110px;
+}
+
 
 /*Header*/
 .topbar{
@@ -125,7 +142,9 @@ body{
 .users p{
     margin-left: 6px;
 }
+
 /*Aside - Section Visibility*/
+
 .visibilityType{
     padding: 6px 0;
     margin-left: 20px;
@@ -166,8 +185,8 @@ body{
 
 /*Main - Chat*/
 /*Classe das Mensagens*/
-.chat{
-    margin-top: 106px;
+.chatmargins{
+    padding: 106px 0;
 }
 .mensagens{
     margin-top: 4px;
@@ -238,11 +257,13 @@ time{
     font-weight: 300;
     font-size: 14px;
     line-height: 25px;
+    width: 100%;
+    margin-right: 10px;
 }
 .write-msg{
     font-style: italic;
     height: 30px;
-    width: 299px;
+    width: 100%;
     font-weight: 400;
     font-size: 18px;
     line-height: 21px;
