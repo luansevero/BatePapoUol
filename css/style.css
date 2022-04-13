@@ -204,10 +204,10 @@ time{
 .status{
     background: #DCDCDC;
 }
-.normal{
+.message{
     background: #FFFFFF;
 }
-.private{
+.private_message{
     background: #FFDEDE;
 }
 
