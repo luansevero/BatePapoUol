@@ -1,16 +1,26 @@
-//Login + Barra do Menu
-function login(element){
-    let nametyped = document.querySelector(`.write-name`)
-    if(verifyName((nametyped.value))){
-        element.parentNode.classList.remove(`active`)
-    }
-    return nametyped
+//Entrar na Sala API
+function login(){
+    let nametyped = document.querySelector(`.write-name`).value
+    const username = { name: nametyped}
+    const promess = axios.post(`https://mock-api.driven.com.br/api/v6/uol/participants `, username);
+    promess.then(nomecadastrado(username))
+    promess.catch(nomecomFalha())
+
 }
-function verifyName(nametyped){
-    if(nametyped == ""){
-        return false
-    } return true
+function nomecadastrado(username){
+    document.querySelector(`.entrance`).classList.remove(`active`);
+    const idInterval = setInterval(keepConection, 4000, username)
+    participantsList()
 }
+function nomecomFalha(){
+    alert(`Nome já foi cadastrado, tente um novo nome!`)
+}
+//Manter Conexão API
+function keepConection(username){
+    const conectionpromess = axios.post(`https://mock-api.driven.com.br/api/v6/uol/status`, username)
+}
+
+//SideBar(Bônus)
 function menu(){
     document.querySelector(`.mainsidebar`).classList.add(`active`)
 }
@@ -20,24 +30,30 @@ function closeMenu(element){
             element.classList.remove(`active`)
         }
     }
-
-
-
-//Lista dos participantes
+}
+//Lista de Participantes API
 function participantsList(){
-    let newParticipant = document.createElement(`div`)
-    newParticipant.classList.add(`user`)
-    newParticipant.setAttribute(`onclick`, `msgFor(this)`)
-    newParticipant.setAttribute(`data-identifier`, `participant`)
-    newParticipant.innerHTML = `
-    <div class="users-container">
-        <ion-icon class="iconPerson" name="person-circle"></ion-icon>
-        <p>${participant}</p>
-    </div>
-    <ion-icon class="checkmark" name="checkmark-sharp"></ion-icon>
-  `  
+    const listPromess = axios.get("http://mock-api.driven.com.br/api/v6/uol/messages");
+    listPromess.then(createList)
 }
+function createList(list){
+    let userlogin = document.querySelector(`.write-name`).value
+    for(let i = list.length; i > (list.length - 10); i--){
+        if(list.data.name[i] != userlogin){
+        let newParticipant = document.createElement(`div`)
+        newParticipant.classList.add(`user`)
+        newParticipant.setAttribute(`onclick`, `msgFor(this)`)
+        newParticipant.innerHTML = `
+        <div class="users-container">
+            <ion-icon class="iconPerson" name="person-circle"></ion-icon>
+            <p>${list.data.name[i]}</p>
+        </div>
+        <ion-icon class="checkmark" name="checkmark-sharp"></ion-icon>
+      `  
+        }
+    }
 }
+
 //Mudando a pessoa que quer 
 function msgFor(element){
     let users;

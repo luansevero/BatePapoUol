@@ -13,7 +13,7 @@
     <main class="entrance active">
         <img src="imagens/logo 2.png">
         <input class="write-name" type="text" placeholder="Digite seu nome">
-        <div class="button-login" onclick="login(this)">
+        <div class="button-login" onclick="login()">
                 <p>Entrar</p>
         </div>
     </main>
@@ -34,20 +34,7 @@
                     </div>
                     <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
                 </div>
-                <div class="users" onclick="msgFor(this)">
-                    <div class="users-container">
-                        <ion-icon class="iconPerson" name="person-circle"></ion-icon>
-                        <p>João</p>
-                    </div>
-                    <ion-icon class="checkmark" name="checkmark-sharp"></ion-icon>
-                </div>
-                <div class="users" onclick="msgFor(this)">
-                    <div class="users-container">
-                        <ion-icon class="iconPerson" name="person-circle"></ion-icon>
-                        <p>Maria</p>
-                    </div>
-                    <ion-icon class="checkmark" name="checkmark-sharp"></ion-icon>
-                </div>
+
             </section>
             <section  class="visibility">
                 <h1>Escolha a visibilidade:</h1>
@@ -83,7 +70,7 @@
     </footer>
 
 
-    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 </body>
