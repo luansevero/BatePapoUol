@@ -71,36 +71,30 @@ function localTime(){ //Pega a data local
     let clock = `${("0" + hour).slice(-2)}:${("0" + min).slice(-2)}:${("0" + sec).slice(-2)}`
     return clock
 }
-//Função de Criação de mensagem
+//Função de Criação de mensagem(Feito)
 function sendMessage(){
-    let user = document.querySelector(`.write-name`).value
-    let localtime = localTime()
-    let personselected = document.querySelector(`.sendTo`)
-    personselected = personselected.querySelectorAll(`span`)[0].innerHTML
-    if(personselected !== "Todos"){
-        personselected = `<strong>${personselected}</strong>`
+    const from = document.querySelector(`.write-name`).value //De quem
+    const to = document.querySelector(`.sendTo`).querySelectorAll(`span`)[0].innerHTML
+    const text = document.querySelector(`.write-msg`).value //Texto
+    const type = document.querySelector(`.sendTo`).querySelectorAll(`span`)[1].innerHTML
+    if(type == "(Público)"){
+        type = "message"
+    } else if(type == "(Reservadamente)"){
+        type = "private_message"
     }
-    const type = document.querySelector(`.sendTo`)
-    let msgTypeClass;
-    let msgType;
-    msgTypeClass = type.querySelectorAll(`span`)[1].innerHTML
-    if(msgTypeClass == "(Reservadamente)"){
-        msgTypeClass = "private"
-        msgType = "reservadamente para"
-    } else if(msgTypeClass == "(Público)"){
-        msgTypeClass = "normal"
-        msgType = "para"
+    mensage = {
+        from: from,
+        to: to,
+        text: text,
+        type: type,
     }
-    let msgText = document.querySelector(`.write-msg`)
-    //Criação da Mensagem
-    let newchatMsg = document.createElement(`div`)
-    newchatMsg.classList.add(`mensagens`)
-    newchatMsg.classList.add(`${msgTypeClass}`)
-    newchatMsg.innerHTML = `
-    <div class="msg">
-        <p><time>(${localtime})</time>  <strong>${user}</strong> ${msgType} ${personselected} :  ${msgText.value}</p>
-    </div>
-    `
-    document.querySelector(`.chat`).appendChild(newchatMsg)
-    msgText.value = ""
+    const promessa = axios.post(`https://mock-api.driven.com.br/api/v6/uol/messages`, mensage);
+    promessa.then(mensagemCadastrada)
+    promessa.catch(mensagemComFalha)
+}
+function mensagemCadastrada(){
+    alert(`Mensagem cadastrada com sucesso`)
+}
+function mensagemComFalha(err){
+    alert(err.responde.status)
 }

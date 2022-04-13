@@ -27,21 +27,21 @@
         <div class="sidebar">
             <section class="participants">
                 <h1>Escolha um contato para enviar mensagem:</h1>
-                <div class="users selected" data-identifier="participant" onclick="msgFor(this)">
+                <div class="users selected" onclick="msgFor(this)">
                     <div class="users-container">
                         <ion-icon class="iconPerson" name="people"></ion-icon>
                         <p>Todos</p>
                     </div>
                     <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
                 </div>
-                <div class="users" data-identifier="participant" onclick="msgFor(this)">
+                <div class="users" onclick="msgFor(this)">
                     <div class="users-container">
                         <ion-icon class="iconPerson" name="person-circle"></ion-icon>
                         <p>João</p>
                     </div>
                     <ion-icon class="checkmark" name="checkmark-sharp"></ion-icon>
                 </div>
-                <div class="users" data-identifier="participant" onclick="msgFor(this)">
+                <div class="users" onclick="msgFor(this)">
                     <div class="users-container">
                         <ion-icon class="iconPerson" name="person-circle"></ion-icon>
                         <p>Maria</p>
@@ -68,33 +68,8 @@
             </section>
         </div>
     </aside>
+
     <main class="chat">
-        <!--Vai ser criado pelo JS, no momento aqui no html para ter vizualição de como vai ficar-->
-        <div class="mensagens status">
-            <div class="msg">
-                <p><time>(09:21:45)</time>  <strong>João</strong>  entra na sala...</p>
-            </div>
-        </div>
-        <div class="mensagens normal">
-            <div class="msg">
-                <p><time>(09:22:28)</time>  <strong>João</strong> para Todos:  Bom dia</p>
-            </div>
-        </div>
-        <div class="mensagens normal">
-            <div class="msg">
-                <p><time>(09:22:38)</time>  <strong>Maria</strong> para <strong>João</strong>:  Oi João :)</p>
-            </div>
-        </div>
-        <div class="mensagens private">
-            <div class="msg">
-                <p><time>(09:22:48)</time> <strong>João</strong> reservadamente para <strong>Maria</strong>:  Oi gatinha quer tc?</p>
-            </div>
-        </div>
-        <div class="mensagens status">
-            <div class="msg">
-                <p><time>(09:22:58)</time> <strong>Maria</strong>  sai da sala...</p>
-            </div>
-        </div>
     </main>
 
     <footer class="bottombar">
