@@ -188,6 +188,9 @@ body{
 .chatmargins{
     padding: 106px 0;
 }
+.chat{
+    overflow-y: scroll;
+}
 .mensagens{
     margin-top: 4px;
     width: 100%;

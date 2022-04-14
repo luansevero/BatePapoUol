@@ -1,43 +1,85 @@
-//Entrar na Sala API
+//Funçoes para poder entrar no Bate-Papo
 function login(element){
-    const nametyped = document.querySelector(`.write-name`).value
-    const username = { name: nametyped}
-    element.parentNode.classList.toggle(`active`)
-    document.querySelector(`.loading`).classList.toggle(`active`)
-    const promess = axios.post(`https://mock-api.driven.com.br/api/v6/uol/participants `, username);
-    promess.then(nomecadastrado)
-    promess.catch(nomecomFalha)
+    const nametyped = document.querySelector(`.write-name`).value;
+    const username = { name: nametyped};
+    loadingLogin(element);
+    const loginpromess = axios.post(`https://mock-api.driven.com.br/api/v6/uol/participants `, username);
+    loginpromess.then(registrationSucess);
+    loginpromess.catch(registrationFailed);
 }
-participantsList()
-function nomecadastrado(){
-    const username2 = document.querySelector(`.write-name`).value
+function loadingLogin(el){
+    el.parentNode.classList.toggle(`active`);
+    document.querySelector(`.loading`).classList.toggle(`active`);
+}
+function registrationSucess(){
     document.querySelector(`.entrance`).classList.remove(`active`);
-    setInterval(keepConection, 4000, username2)
-    setInterval(participantsList, 10000,)
-    setInterval(searchMenssages, 3000)
-    searchMenssages()
+    msgAlreadyWrite()
+    participantsList();
+    allIntervals();
 }
-function nomecomFalha(){
-    alert(`Nome já foi cadastrado, tente um novo nome!`)
-    window.location.reload()
+function registrationFailed(){
+    alert(`Nome já foi cadastrado, tente um novo nome!`);
+    window.location.reload();
 }
-//Manter Conexão API
-function keepConection(userN){
-    const dados = {
-        name: userN
+function allIntervals(){
+    setInterval(keepConection, 4000);
+    setInterval(participantsList, 10000);
+    setInterval(apimsg, 3000);
+}
+function keepConection(){ //ManterConexão com Api
+    const userloged = document.querySelector(`.write-name`).value;
+    const userLoged = {
+        name: userloged
+    };
+    const connectionpromess = axios.post(`https://mock-api.driven.com.br/api/v6/uol/status`, userLoged);
+    connectionpromess.catch(unLoged);
+}
+function unLoged(){
+    window.location.reload();
+}
+
+//SideBar(Bônus)
+function menu(){
+    document.querySelector(`.mainsidebar`).classList.add(`active`);
+}
+function closeMenu(element){
+    document.onclick = function(e){
+        if(e.target.classList[0] == "mainsidebar"){
+            element.classList.remove(`active`);
+        }
     }
-    const conectionpromess = axios.post(`https://mock-api.driven.com.br/api/v6/uol/status`, dados)
 }
+function msgFor(element){
+    let users;
+    let visibility;
+    const msgto = document.querySelector(`.sendTo`);
+    const clickArea = element.classList[0];
+    const allAreas = document.querySelectorAll(`.${clickArea}`);
+    for(let i = 0; i < allAreas.length; i++){
+        if(allAreas[i].classList.contains(`selected`)){
+            allAreas[i].classList.remove(`selected`);
+            allAreas[i].querySelector(`.checkmark`).classList.remove(`selected`);
+        }
+    }
+    element.classList.add(`selected`);
+    element.querySelector(`ion-icon.checkmark`).classList.add(`selected`);
+    if(clickArea == "users"){
+        users =  element.querySelector(`p`).innerHTML;
+        msgto.querySelectorAll(`span`)[0].innerHTML = users;
+    } else if(clickArea == "visibilityType"){
+        visibility = element.querySelector(`p`).innerHTML;
+        msgto.querySelectorAll(`span`)[1].innerHTML = `(${visibility})`;
+    }
 
-
-//Lista de Participantes API
+}
+//Lista de Participantes da SideBar - API
 function participantsList(){
     const listPromess = axios("https://mock-api.driven.com.br/api/v6/uol/participants");
-    listPromess.then(createList)
+    listPromess.then(createList);
 }
 function createList(list){
     document.querySelector(`.participantslist`).innerHTML = ""
-    let usernametyped = document.querySelector(`.write-name`).value
+    let usernametyped = document.querySelector(`.write-name`).value;
     for(let i = 0; i < list.data.length; i++){
         if(usernametyped != list.data[i].name){
         let newParticipant = document.createElement(`div`)
@@ -54,41 +96,7 @@ function createList(list){
         }
     }
 }
-//SideBar(Bônus)
-function menu(){
-    document.querySelector(`.mainsidebar`).classList.add(`active`)
-}
-function closeMenu(element){
-    document.onclick = function(e){
-        if(e.target.classList[0] == "mainsidebar"){
-            element.classList.remove(`active`)
-        }
-    }
-}
-function msgFor(element){
-    let users;
-    let visibility;
-    const msgto = document.querySelector(`.sendTo`)
-    const clickArea = element.classList[0]
-    const allAreas = document.querySelectorAll(`.${clickArea}`)
-    for(let i = 0; i < allAreas.length; i++){
-        if(allAreas[i].classList.contains(`selected`)){
-            allAreas[i].classList.remove(`selected`)
-            allAreas[i].querySelector(`.checkmark`).classList.remove(`selected`)
-        }
-    }
-    element.classList.add(`selected`)
-    element.querySelector(`ion-icon.checkmark`).classList.add(`selected`)
-    if(clickArea == "users"){
-        users =  element.querySelector(`p`).innerHTML
-        msgto.querySelectorAll(`span`)[0].innerHTML = users
-    } else if(clickArea == "visibilityType"){
-        visibility = element.querySelector(`p`).innerHTML
-        msgto.querySelectorAll(`span`)[1].innerHTML = `(${visibility})`
-    }
-
-}
-//Função de Criação de mensagem(Feito)
+//Função de Criação de mensagem
 function sendMessage(){
     const from = document.querySelector(`.write-name`).value //De quem
     const to = document.querySelector(`.sendTo`).querySelectorAll(`span`)[0].innerHTML
@@ -111,27 +119,39 @@ function sendMessage(){
 }
 function mensagemCadastrada(){
     document.querySelector(`.write-msg`).value = ""
-    searchMenssages()
+    apimsg()
 }
 function mensagemComFalha(err){
     window.location.reload()
 }
 //Função de Procura de Mensagens
-function searchMenssages(){
+function apimsg(){
     const searchmsgPromess = axios.get(`https://mock-api.driven.com.br/api/v6/uol/messages`)
-    searchmsgPromess.then(backUpMsg)
+    searchmsgPromess.then(newMessages)
 }
-function backUpMsg(allmsg){
-    const elementoQueQueroQueApareca = document.querySelector('.chatmargins');
-    document.querySelector(`main.chat`).innerHTML = ""
+function msgAlreadyWrite(){
+    const searchmsgPromess = axios.get(`https://mock-api.driven.com.br/api/v6/uol/messages`)
+    searchmsgPromess.then(msgcreator)
+}
+function newMessages(database){
+    if(verifynewmsg(database)){
+        document.querySelector(`main.chat`).innerHTML = ""
+        msgcreator(database)
+    }
+}
+function msgcreator(allmsg){
     for(let i = 0; i < allmsg.data.length; i++){
+        if(allmsg.data[i].to != "Todos"){
+            console.log(allmsg.data[i].to)
+            allmsg.data[i].to = `<strong>${allmsg.data[i].to}</strong>`
+        }
         let newchatMsg = document.createElement(`div`)
         newchatMsg.classList.add(`mensagens`)
         newchatMsg.classList.add(`${allmsg.data[i].type}`)
         if(allmsg.data[i].type == "private_message"){
         newchatMsg.innerHTML = `
         <div class="msg">
-            <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para <strong>${allmsg.data[i].to}</strong>: ${allmsg.data[i].text}</p>
+            <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para ${allmsg.data[i].to}: ${allmsg.data[i].text}</p>
         </div>
         `
         document.querySelector(`.chat`).appendChild(newchatMsg)
@@ -143,6 +163,30 @@ function backUpMsg(allmsg){
             `
             document.querySelector(`.chat`).appendChild(newchatMsg)
         }
+        scrolltobottom()
     }
-    elementoQueQueroQueApareca.scrollIntoView(false);
 }
+function verifynewmsg(allmsg){ // 0 = primeira mensagem 99 = ultima mensagem (Motivo: Flood)!
+    const allmsgloaded = document.querySelectorAll(`.mensagens .msg p`);
+    if(allmsg.data[0].to !== "Todos"){
+        allmsg.data[0].to = `<strong>${allmsg.data[0].to}</strong>`
+    } if(allmsg.data[99].to !== "Todos"){
+        allmsg.data[99].to = `<strong>${allmsg.data[99].to}</strong>`
+    }
+    if(allmsgloaded[0].innerHTML === `<time>(${allmsg.data[0].time})</time> <strong>${(allmsg.data[0].from)}</strong> reservadamente para ${allmsg.data[0].to}: ${allmsg.data[0].text}`){
+        if(allmsgloaded[99].innerHTML === `<time>(${allmsg.data[99].time})</time> <strong>${(allmsg.data[99].from)}</strong> reservadamente para ${allmsg.data[99].to}: ${allmsg.data[99].text}`){
+            return false
+        }
+    } else if(allmsgloaded[0].innerHTML === `<time>(${allmsg.data[0].time})</time> <strong>${(allmsg.data[0].from)}</strong> para ${allmsg.data[0].to}: ${allmsg.data[0].text}`){
+        if(allmsgloaded[99].innerHTML === `<time>(${allmsg.data[99].time})</time> <strong>${(allmsg.data[99].from)}</strong> para ${allmsg.data[99].to}: ${allmsg.data[99].text}`){
+            return false
+        }
+    } else {
+        return true
+    } 
+}
+function scrolltobottom(){
+    const elementoQueQueroQueApareca = document.querySelector('.chatmargins');
+    elementoQueQueroQueApareca.scrollIntoView(false)
+}
+
