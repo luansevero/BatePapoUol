@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/mobile.css">
 </head>
 <body>
-    <main class="entrance active">
+    <main class="entrance ">
         <img class="logo" src="imagens/logo 2.png" alt="Uol-Logo">
         <div class="cadastro active" >
             <input type="text" class="write-name" placeholder="Digite seu nome">
@@ -26,10 +26,10 @@
     <nav class="topbar">
         <div class="topbar-container">
             <img src="imagens/logo 1.png" alt="Uol-Logo">
-            <ion-icon class="profile" name="people" onclick="menu()"></ion-icon>
+            <ion-icon class="profile" name="people" onclick="openSideBar()"></ion-icon>
         </div>
     </nav>
-    <aside class="mainsidebar" onclick="closeMenu(this)">
+    <aside class="mainsidebar" onclick="closeSideBar(this)">
         <div class="sidebar">
             <section class="participants">
                 <h1>Escolha um contato para enviar mensagem:</h1>
@@ -41,7 +41,93 @@
                         </div>
                         <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
                     </div>
+                    <div class="users selected" onclick="msgFor(this)">
+                        <div class="users-container">
+                            <ion-icon class="iconPerson" name="people"></ion-icon>
+                            <p>Todos</p>
+                        </div>
+                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
+                    </div>
+                    <div class="users selected" onclick="msgFor(this)">
+                        <div class="users-container">
+                            <ion-icon class="iconPerson" name="people"></ion-icon>
+                            <p>Todos</p>
+                        </div>
+                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
+                    </div>
+                    <div class="users selected" onclick="msgFor(this)">
+                        <div class="users-container">
+                            <ion-icon class="iconPerson" name="people"></ion-icon>
+                            <p>Todos</p>
+                        </div>
+                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
+                    </div>
+                    <div class="users selected" onclick="msgFor(this)">
+                        <div class="users-container">
+                            <ion-icon class="iconPerson" name="people"></ion-icon>
+                            <p>Todos</p>
+                        </div>
+                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
+                    </div>
+                    <div class="users selected" onclick="msgFor(this)">
+                        <div class="users-container">
+                            <ion-icon class="iconPerson" name="people"></ion-icon>
+                            <p>Todos</p>
+                        </div>
+                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
+                    </div>
+                    <div class="users selected" onclick="msgFor(this)">
+                        <div class="users-container">
+                            <ion-icon class="iconPerson" name="people"></ion-icon>
+                            <p>Todos</p>
+                        </div>
+                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
+                    </div>
+                    <div class="users selected" onclick="msgFor(this)">
+                        <div class="users-container">
+                            <ion-icon class="iconPerson" name="people"></ion-icon>
+                            <p>Todos</p>
+                        </div>
+                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
+                    </div>
+                    <div class="users selected" onclick="msgFor(this)">
+                        <div class="users-container">
+                            <ion-icon class="iconPerson" name="people"></ion-icon>
+                            <p>Todos</p>
+                        </div>
+                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
+                    </div>
+                    <div class="users selected" onclick="msgFor(this)">
+                        <div class="users-container">
+                            <ion-icon class="iconPerson" name="people"></ion-icon>
+                            <p>Todos</p>
+                        </div>
+                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
+                    </div>
+                    <div class="users selected" onclick="msgFor(this)">
+                        <div class="users-container">
+                            <ion-icon class="iconPerson" name="people"></ion-icon>
+                            <p>Todos</p>
+                        </div>
+                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
+                    </div>
+                    <div class="users selected" onclick="msgFor(this)">
+                        <div class="users-container">
+                            <ion-icon class="iconPerson" name="people"></ion-icon>
+                            <p>Todos</p>
+                        </div>
+                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
+                    </div>
+                    <div class="users selected" onclick="msgFor(this)">
+                        <div class="users-container">
+                            <ion-icon class="iconPerson" name="people"></ion-icon>
+                            <p>Todos</p>
+                        </div>
+                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
+                    </div>
 
+
+                    
                     <div class="participantslist">
                     </div>
                 </div>
@@ -68,14 +154,60 @@
     </aside>
 
     <main class="chatmargins">
-        <main class="chat">
-        </main>
+        <div class="chat">
+            <div class="mensagens status">
+                <div class="msg">
+                    <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para ${allmsg.data[i].to}: ${allmsg.data[i].text}</p>
+                </div>
+            </div>
+            <div class="mensagens status">
+                <div class="msg">
+                    <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para ${allmsg.data[i].to}: ${allmsg.data[i].text}</p>
+                </div>
+            </div>
+            <div class="mensagens status">
+                <div class="msg">
+                    <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para ${allmsg.data[i].to}: ${allmsg.data[i].text}</p>
+                </div>
+            </div>
+            <div class="mensagens status">
+                <div class="msg">
+                    <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para ${allmsg.data[i].to}: ${allmsg.data[i].text}</p>
+                </div>
+            </div>
+            <div class="mensagens status">
+                <div class="msg">
+                    <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para ${allmsg.data[i].to}: ${allmsg.data[i].text}</p>
+                </div>
+            </div>
+            <div class="mensagens status">
+                <div class="msg">
+                    <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para ${allmsg.data[i].to}: ${allmsg.data[i].text}</p>
+                </div>
+            </div>
+            <div class="mensagens status">
+                <div class="msg">
+                    <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para ${allmsg.data[i].to}: ${allmsg.data[i].text}</p>
+                </div>
+            </div>
+            <div class="mensagens status">
+                <div class="msg">
+                    <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para ${allmsg.data[i].to}: ${allmsg.data[i].text}</p>
+                </div>
+            </div>
+            <div class="mensagens status">
+                <div class="msg">
+                    <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para ${allmsg.data[i].to}: ${allmsg.data[i].text}</p>
+                </div>
+            </div>
+
+        </div>
     </main>
 
     <footer class="bottombar">
         <div class="bottombar-container">
             <div class="bottomtext">
-                <input class="write-msg" placeholder="Escreva aqui...">
+                <input class="write-msg" type="text" placeholder="Escreva aqui...">
                 <p class="sendTo">Enviando para <span>Todos</span> <span>(Público)</span></p>
             </div>
             <ion-icon class="send-msg" name="paper-plane-outline" onclick="sendMessage()"></ion-icon>

@@ -39,10 +39,12 @@ function unLoged(){
 }
 
 //SideBar(Bônus)
-function menu(){
+function openSideBar(){
     document.querySelector(`.mainsidebar`).classList.add(`active`);
+    let chatee = document.querySelector(".chat")
+    chatee.style.overflow = "none";
 }
-function closeMenu(element){
+function closeSideBar(element){
     document.onclick = function(e){
         if(e.target.classList[0] == "mainsidebar"){
             element.classList.remove(`active`);
@@ -167,18 +169,13 @@ function msgcreator(allmsg){
     }
 }
 function verifynewmsg(allmsg){ // 0 = primeira mensagem 99 = ultima mensagem (Motivo: Flood)!
-    const allmsgloaded = document.querySelectorAll(`.mensagens .msg p`);
-    if(allmsg.data[0].to !== "Todos"){
-        allmsg.data[0].to = `<strong>${allmsg.data[0].to}</strong>`
-    } if(allmsg.data[99].to !== "Todos"){
-        allmsg.data[99].to = `<strong>${allmsg.data[99].to}</strong>`
-    }
-    if(allmsgloaded[0].innerHTML === `<time>(${allmsg.data[0].time})</time> <strong>${(allmsg.data[0].from)}</strong> reservadamente para ${allmsg.data[0].to}: ${allmsg.data[0].text}`){
-        if(allmsgloaded[99].innerHTML === `<time>(${allmsg.data[99].time})</time> <strong>${(allmsg.data[99].from)}</strong> reservadamente para ${allmsg.data[99].to}: ${allmsg.data[99].text}`){
+    const allmsgloaded = document.querySelectorAll(`.msg time`);
+    if(allmsgloaded[0].innerHTML === `(${allmsg.data[0].time})`){
+        if(allmsgloaded[99].innerHTML === `(${allmsg.data[99].time})`){
             return false
         }
-    } else if(allmsgloaded[0].innerHTML === `<time>(${allmsg.data[0].time})</time> <strong>${(allmsg.data[0].from)}</strong> para ${allmsg.data[0].to}: ${allmsg.data[0].text}`){
-        if(allmsgloaded[99].innerHTML === `<time>(${allmsg.data[99].time})</time> <strong>${(allmsg.data[99].from)}</strong> para ${allmsg.data[99].to}: ${allmsg.data[99].text}`){
+    } else if(allmsgloaded[0].innerHTML === `(${allmsg.data[0].time})`){
+        if(allmsgloaded[99].innerHTML === `(${allmsg.data[99].time})`){
             return false
         }
     } else {
