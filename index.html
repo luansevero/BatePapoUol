@@ -10,140 +10,65 @@
     <link rel="stylesheet" href="css/mobile.css">
 </head>
 <body>
-    <main class="entrance ">
-        <img class="logo" src="imagens/logo 2.png" alt="Uol-Logo">
-        <div class="cadastro active" >
-            <input type="text" class="write-name" placeholder="Digite seu nome">
-            <div class="button-login" onclick="login(this)">
-                <p>Entrar</p>
+    <!--Tela de Login - Bônus-->
+    <main class="body active">
+        <div class="logo-container"><img src="imagens/logo 2.png" alt="Uol-Logo" class="logo"></div>
+        <div class="registration active">
+            <input type="text" class="username" placeholder="Digite seu nome">
+            <div class="login-btn" onclick="register(this)">
+                <span>Entrar</span>
             </div>
         </div>
-        <div class="loading ">
-            <img class="gifload" src="imagens/load.gif" alt="loading">
-            <span>Entrando...</span>
+        <div class="loading">
+            <img src="imagens/load.gif" alt="loading" class="loading-gif">
+            <span>Entrando</span>
         </div>
     </main>
-    <nav class="topbar">
-        <div class="topbar-container">
+    <!--Fim da Tela de Login - Bônus-->
+    <!--Header-->
+    <header class="top-bar">
+        <div class="top-bar-container">
             <img src="imagens/logo 1.png" alt="Uol-Logo">
             <ion-icon class="profile" name="people" onclick="openSideBar()"></ion-icon>
         </div>
-    </nav>
-    <aside class="mainsidebar" onclick="closeSideBar(this)">
-        <div class="sidebar">
-            <section class="participants">
+    </header>
+    <!--Fim do Header-->
+    <!--Main Body - Chat-->
+    <main class="chat-body">
+        <ul class="chat">
+        </ul>
+    </main>
+    <!--Fim do Main Body - Chat-->
+    <!--Top-Bar > SideBar Bônus-->
+    <aside class="side-bar" onclick="closeSideBar(this)">
+        <div class="side-bar-container">
+            <section class="participants-logged">
                 <h1>Escolha um contato para enviar mensagem:</h1>
-                <div class="scroll">
-                    <div class="users selected" onclick="msgFor(this)">
-                        <div class="users-container">
+                <div class="participants-logged-container">
+                    <div class="contact selected" onclick="msgFor(this)">
+                        <div class="contact-container">
                             <ion-icon class="iconPerson" name="people"></ion-icon>
-                            <p>Todos</p>
+                            <p class="contact-name">Todos</p>
                         </div>
                         <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
                     </div>
-                    <div class="users selected" onclick="msgFor(this)">
-                        <div class="users-container">
-                            <ion-icon class="iconPerson" name="people"></ion-icon>
-                            <p>Todos</p>
-                        </div>
-                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
-                    </div>
-                    <div class="users selected" onclick="msgFor(this)">
-                        <div class="users-container">
-                            <ion-icon class="iconPerson" name="people"></ion-icon>
-                            <p>Todos</p>
-                        </div>
-                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
-                    </div>
-                    <div class="users selected" onclick="msgFor(this)">
-                        <div class="users-container">
-                            <ion-icon class="iconPerson" name="people"></ion-icon>
-                            <p>Todos</p>
-                        </div>
-                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
-                    </div>
-                    <div class="users selected" onclick="msgFor(this)">
-                        <div class="users-container">
-                            <ion-icon class="iconPerson" name="people"></ion-icon>
-                            <p>Todos</p>
-                        </div>
-                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
-                    </div>
-                    <div class="users selected" onclick="msgFor(this)">
-                        <div class="users-container">
-                            <ion-icon class="iconPerson" name="people"></ion-icon>
-                            <p>Todos</p>
-                        </div>
-                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
-                    </div>
-                    <div class="users selected" onclick="msgFor(this)">
-                        <div class="users-container">
-                            <ion-icon class="iconPerson" name="people"></ion-icon>
-                            <p>Todos</p>
-                        </div>
-                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
-                    </div>
-                    <div class="users selected" onclick="msgFor(this)">
-                        <div class="users-container">
-                            <ion-icon class="iconPerson" name="people"></ion-icon>
-                            <p>Todos</p>
-                        </div>
-                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
-                    </div>
-                    <div class="users selected" onclick="msgFor(this)">
-                        <div class="users-container">
-                            <ion-icon class="iconPerson" name="people"></ion-icon>
-                            <p>Todos</p>
-                        </div>
-                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
-                    </div>
-                    <div class="users selected" onclick="msgFor(this)">
-                        <div class="users-container">
-                            <ion-icon class="iconPerson" name="people"></ion-icon>
-                            <p>Todos</p>
-                        </div>
-                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
-                    </div>
-                    <div class="users selected" onclick="msgFor(this)">
-                        <div class="users-container">
-                            <ion-icon class="iconPerson" name="people"></ion-icon>
-                            <p>Todos</p>
-                        </div>
-                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
-                    </div>
-                    <div class="users selected" onclick="msgFor(this)">
-                        <div class="users-container">
-                            <ion-icon class="iconPerson" name="people"></ion-icon>
-                            <p>Todos</p>
-                        </div>
-                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
-                    </div>
-                    <div class="users selected" onclick="msgFor(this)">
-                        <div class="users-container">
-                            <ion-icon class="iconPerson" name="people"></ion-icon>
-                            <p>Todos</p>
-                        </div>
-                        <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
-                    </div>
-
-
-                    
-                    <div class="participantslist">
+                    <div class="contact-list">
                     </div>
                 </div>
-
+                <ul class="participants-list">
+                </ul>
             </section>
-            <section  class="visibility">
-                <h1>Escolha a visibilidade:</h1>
-                <div class="visibilityType selected" data-identifier="visibility" onclick="msgFor(this)">
-                    <div class="visibilityType-container">
+            <section class="msg-visibility">
+                <h1>Escolha a visibilidade</h1>
+                <div class="type-of-visibility selected" data-identifier="visibility" onclick="msgFor(this)">
+                    <div class="type-of-visibility-container">
                         <ion-icon class="iconLock" name="lock-open"></ion-icon>
                         <p>Público</p>
                     </div>
                     <ion-icon class="checkmark selected" name="checkmark-sharp"></ion-icon>
                 </div>
-                <div class="visibilityType" data-identifier="visibility" onclick="msgFor(this)">
-                    <div class="visibilityType-container">
+                <div class="type-of-visibility" data-identifier="visibility" onclick="msgFor(this)">
+                    <div class="type-of-visibility-container">
                         <ion-icon class="iconLock" name="lock-closed"></ion-icon>
                         <p>Reservadamente</p>
                     </div>
@@ -152,68 +77,18 @@
             </section>
         </div>
     </aside>
-
-    <main class="chatmargins">
-        <div class="chat">
-            <div class="mensagens status">
-                <div class="msg">
-                    <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para ${allmsg.data[i].to}: ${allmsg.data[i].text}</p>
-                </div>
+    <!--Top-Bar > SideBar Bônus-->
+    <!--Footer -  BottomBar-->
+    <footer class="bottom-bar">
+        <div class="bottom-bar-container">
+            <div class="bottom-texts">
+                <input class="text" type="text" placeholder="Escreva aqui...">
+                <p class="sendTo">Enviando para <span>Todos</span> <span>(público)</span></p>
             </div>
-            <div class="mensagens status">
-                <div class="msg">
-                    <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para ${allmsg.data[i].to}: ${allmsg.data[i].text}</p>
-                </div>
-            </div>
-            <div class="mensagens status">
-                <div class="msg">
-                    <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para ${allmsg.data[i].to}: ${allmsg.data[i].text}</p>
-                </div>
-            </div>
-            <div class="mensagens status">
-                <div class="msg">
-                    <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para ${allmsg.data[i].to}: ${allmsg.data[i].text}</p>
-                </div>
-            </div>
-            <div class="mensagens status">
-                <div class="msg">
-                    <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para ${allmsg.data[i].to}: ${allmsg.data[i].text}</p>
-                </div>
-            </div>
-            <div class="mensagens status">
-                <div class="msg">
-                    <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para ${allmsg.data[i].to}: ${allmsg.data[i].text}</p>
-                </div>
-            </div>
-            <div class="mensagens status">
-                <div class="msg">
-                    <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para ${allmsg.data[i].to}: ${allmsg.data[i].text}</p>
-                </div>
-            </div>
-            <div class="mensagens status">
-                <div class="msg">
-                    <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para ${allmsg.data[i].to}: ${allmsg.data[i].text}</p>
-                </div>
-            </div>
-            <div class="mensagens status">
-                <div class="msg">
-                    <p><time>(${allmsg.data[i].time})</time> <strong>${(allmsg.data[i].from)}</strong> reservadamente para ${allmsg.data[i].to}: ${allmsg.data[i].text}</p>
-                </div>
-            </div>
-
-        </div>
-    </main>
-
-    <footer class="bottombar">
-        <div class="bottombar-container">
-            <div class="bottomtext">
-                <input class="write-msg" type="text" placeholder="Escreva aqui...">
-                <p class="sendTo">Enviando para <span>Todos</span> <span>(Público)</span></p>
-            </div>
-            <ion-icon class="send-msg" name="paper-plane-outline" onclick="sendMessage()"></ion-icon>
+            <ion-icon class="btn-send-msg" name="paper-plane-outline" onclick="sendMessage()"></ion-icon>
         </div>
     </footer>
-
+    <!--Footer -  BottomBar-->
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>

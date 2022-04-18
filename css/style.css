@@ -2,13 +2,12 @@
 body{
     background-color: #f3f3f3;
     font-family: 'Roboto', sans-serif;
-    height: 100%;
 }
 *{
     box-sizing: border-box;
 }
-/*Main - Entrance*/
-.entrance{
+/*Main - Body*/
+.body{
     display: none;
     position: fixed;
     top: 0;
@@ -25,7 +24,14 @@ body{
     width: 130px;
     height: 92px;
 }
-.write-name{
+.registration,
+.loading{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+/*Main - Body -> Registrarion*/
+.username{/*Input*/
     margin-top: 94px;
     width: 261px;
     height: 54px;
@@ -39,7 +45,7 @@ body{
     line-height: 25px;
     color: #AEAEAE;
 }
-.button-login{
+.login-btn{
     margin-top: 15px;
     width: 109px;
     height: 45px;
@@ -49,32 +55,25 @@ body{
     align-items: center;
     justify-content: center;
 }
-.button-login p{
+.login-btn span{
     font-weight: 400;
     font-size: 18px;
     line-height: 25px;
     color: #696969;
 }
-.cadastro,
-.loading{
-    display: none;
-    flex-direction: column;
-    align-items: center;
+/*Main - Body -> Loading*/
+.loading-gif{
+    margin-top: 90%;
+    width: 120px;
+    height: 110px;
 }
 .loading span{
     margin-top: 30px;
     font-size: 18px;
     font-weight: 500;
 }
-.gifload{
-    margin-top: 90%;
-    width: 120px;
-    height: 110px;
-}
-
-
-/*Header*/
-.topbar{
+/*Header - TopBar*/
+.top-bar{
     position: fixed;
     top: 0;
     left: 0;
@@ -85,7 +84,8 @@ body{
     display: flex;
     align-items: center;
 }
-.topbar-container{
+/*Header - TopBar -> Container*/
+.top-bar-container{
     width: 100%;
     padding: 0 22px;
     display: flex;
@@ -96,9 +96,8 @@ body{
     width: 45px;
     height: 45px;
 }
-
-/*Aside*/
-.mainsidebar{
+/*Aside - SideBar*/
+.side-bar{
     width: 100%;
     left: 100%;
     display: none;
@@ -110,68 +109,7 @@ body{
     background: rgba(0, 0, 0, 0.6);  
     z-index: 1;
 }
-.sidebar{
-    width: 259px;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    right: 0;
-    background: #FFFFFF;
-    overflow: scroll;
-}
-.participants .scroll{
-    height: 10%;
-}
-.sidebar h1{
-    padding: 25px 0px;
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 19px;
-    letter-spacing: 0em;
-    text-align: center;
-
-}
-/*Aside - Section User*/
-.scroll{
-    overflow: hidden;
-    overflow-y:inherit;
-}
-.users{
-    padding: 6px 0;
-    margin-left: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.users-container{
-    display: flex;
-    align-items: center;
-}
-.users p{
-    margin-left: 6px;
-}
-
-/*Aside - Section Visibility*/
-.visibility{
-    padding-bottom: 25px;
-}
-.visibilityType{
-    padding: 6px 0;
-    margin-left: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.visibilityType-container{
-    display: flex;
-    align-items: center;
-}
-.visibilityType p{
-    margin-top: 6px;
-    margin-left: 7px;
-}
-/*Aside - Icones*/
+/*Aside - SideBar(Icones)*/
 .iconPerson{
     width: 25px;
     height: 25px;
@@ -183,33 +121,94 @@ body{
     color: #000000;
 }
 .checkmark{
-    width: 15px;
-    height: 10px;
+    width: 21px;
+    height: 14px;
     color: #28bb25;
-    margin-right: 27px;
+    margin-right: 7px;
     opacity: 0;
 }
 .selected{
     opacity: 1;
 }
-
-
-/*Main - Chat*/
-/*Classe das Mensagens*/
-.chatmargins{
-    padding:  80px 0;
+/*Aside - SideBar -> Container*/
+.side-bar-container{
+    width: 259px;
     height: 100%;
-}
-.chat{
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #FFFFFF;
     overflow-y: scroll;
 }
-.chat > div:first-child{
+.side-bar h1{
+    padding: 25px 0px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+.side-bar p{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 164px;
+    
+}
+/*Aside - SideBar -> Container -> Participants*/
+.contact{
+    padding: 6px 0;
+    margin: 0 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.contact-container{
+    display: flex;
+    align-items: center;
+}
+.contact-name{
+    margin-left: 6px;
+}
+/*Aside - SideBar -> Container -> Visibility*/
+.visibility{
+    padding-bottom: 25px;
+}
+.type-of-visibility{
+    padding: 6px 0;
+    margin: 0 18px 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.type-of-visibility-container{
+    display: flex;
+    align-items: center;
+}
+.msg-visibility > div:last-child{
+    margin-bottom: 25px;
+}
+.type-of-visibility p{
+    margin-top: 6px;
+    margin-left: 7px;
+}
+/*Main - Chat*/
+.chat-body{
+    padding:  80px 0;
+    overflow: hidden;
+}
+.chat > li:first-child{
     margin-top: 26px;
 }
-.chat > div:last-child{
+.chat > li:last-child{
     margin-bottom: 26px;
 }
-.mensagens{
+.msg-text{
     margin-top: 4px;
     width: 100%;
     border-radius: 2px;
@@ -217,16 +216,21 @@ body{
     align-items: center;
     justify-content: center;
 }
-
-.mensagens:first-child{
-    margin: 0px;
+.status{
+    background: #DCDCDC;
 }
-.msg{
+.message{
+    background: #FFFFFF;
+}
+.private_message{
+    background: #FFDEDE;
+}
+.msg-text{
     display: flex;
     padding: 10px 9px 10px 8px;
     width: 100%;
 }
-.msg p{
+.msg-text p{
     width: 100%;
     font-family: 'Roboto';
     font-style: normal;
@@ -238,26 +242,12 @@ body{
 }
 strong{
     font-weight: bold;
-
 }
 time{
     color: #AAAAAA;
 }
-.status{
-    background: #DCDCDC;
-}
-.message{
-    background: #FFFFFF;
-}
-.private_message{
-    background: #FFDEDE;
-}
-
-
-
-
-/*Footer*/
-.bottombar{
+/*Footer - BottomBar*/
+.bottom-bar{
     position: fixed;
     bottom: 0;
     left: 0;
@@ -269,21 +259,22 @@ time{
     align-items: center;
     
 }
-.bottombar-container{
+/*Footer - BottomBar -> Container*/
+.bottom-bar-container{
     width: 100%;
     padding: 0 18px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
-.bottomtext{    
+.bottom-texts{    
     font-weight: 300;
     font-size: 14px;
     line-height: 25px;
     width: 100%;
     margin-right: 10px;
 }
-.write-msg{
+.text{
     font-style: italic;
     height: 30px;
     width: 100%;
@@ -294,16 +285,15 @@ time{
     align-items: center;
     border: none;
 }
-.write-msg::placeholder{
+
+.text::placeholder{
     color: #000000;
 }
-.send-msg{
+.btn-send-msg{
     width: 26px;
     height: 26px;
 }
-/*Outros!!!!!*/
 .active{
     display: flex;
 }
 
-/*Text*/
